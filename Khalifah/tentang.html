@@ -441,6 +441,172 @@
             font-style: italic;
         }
 
+        /* ---------- TOMBOL GALERI DI KARTU USTAD ---------- */
+
+        .pemandu-card-footer {
+            padding: 0 16px 20px;
+        }
+
+        .pemandu-gallery-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--gold-deep);
+            border-radius: var(--radius-md, 12px);
+            background: var(--gold-pale);
+            color: var(--gold-deep);
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .pemandu-gallery-btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--ink);
+            border-color: transparent;
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-2px);
+        }
+
+        .pemandu-gallery-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* ---------- MODAL GALERI FOTO USTAD & JAMAAH ---------- */
+
+        #galleryModalOverlay {
+            align-items: flex-start;
+            overflow-y: auto;
+            padding: 44px 20px;
+        }
+
+        #galleryModalOverlay .wa-modal {
+            max-width: 1240px;
+            max-height: none;
+            margin: auto;
+        }
+
+        .gallery-modal-scroll {
+            overflow-y: visible;
+            padding: 34px 48px 48px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px 32px;
+        }
+
+        .gallery-grid-item {
+            position: relative;
+            border-radius: var(--radius-md, 16px);
+            overflow: hidden;
+            background: var(--white);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-md, 0 10px 24px rgba(0, 0, 0, 0.12));
+            transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+        }
+
+        .gallery-grid-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg, 0 18px 34px rgba(0, 0, 0, 0.16));
+        }
+
+        .gallery-grid-photo {
+            position: relative;
+            aspect-ratio: 1280 / 591;
+            overflow: hidden;
+            background: #eee3ce;
+        }
+
+        .gallery-grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        .gallery-grid-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            background: linear-gradient(155deg, #f1e7d2 0%, #e2d2ac 100%);
+        }
+
+        .gallery-fallback span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-deep);
+            background: rgba(255, 255, 255, 0.75);
+            padding: 5px 10px;
+            border-radius: var(--radius-full, 999px);
+            margin: 12px;
+        }
+
+        .gallery-fallback svg {
+            display: none;
+        }
+
+        .gallery-empty-note {
+            display: none;
+            text-align: center;
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            padding: 20px 0 4px;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                gap: 24px 20px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            #galleryModalOverlay .wa-modal {
+                max-width: 620px;
+            }
+
+            .gallery-modal-scroll {
+                padding: 28px 26px 32px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #galleryModalOverlay {
+                padding: 24px 14px;
+            }
+
+            .gallery-modal-scroll {
+                padding: 24px 18px 28px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
         /* ---------- RESPONSIVE: TABLET (<=1024px) ---------- */
 
         @media (max-width: 1024px) {
@@ -1388,7 +1554,7 @@
                         <div class="pemandu-grid">
                             <div class="pemandu-card">
                                 <div class="pemandu-photo">
-                                    <img src="Image/ustad-asep.jpeg" alt="Ustad Asep Masdinar LC"
+                                    <img src="Image/ustad-asep.png" alt="Ustad Asep Masdinar LC"
                                         onerror="this.parentElement.style.background='linear-gradient(135deg, var(--gold-light), var(--gold))'; this.style.display='none'" />
                                 </div>
                                 <div class="pemandu-info">
@@ -1466,7 +1632,7 @@
 
                             <div class="pemandu-card">
                                 <div class="pemandu-photo">
-                                    <img src="Image/ustad-ropi.jpeg" alt="Ustad Ropii"
+                                    <img src="Image/ustad-ropii.png" alt="Ustad Ropii"
                                         onerror="this.parentElement.style.background='linear-gradient(135deg, var(--gold-light), var(--gold))'; this.style.display='none'" />
                                 </div>
                                 <div class="pemandu-info">
@@ -1778,7 +1944,7 @@
 
                             <div class="pemandu-card">
                                 <div class="pemandu-photo">
-                                    <img src="Image/ustad-dindin.jpeg" alt="Ustad Dindin Komarudin"
+                                    <img src="Image/ustad-dindin.png" alt="Ustad Dindin Komarudin"
                                         onerror="this.parentElement.style.background='linear-gradient(135deg, var(--gold-light), var(--gold))'; this.style.display='none'" />
                                 </div>
                                 <div class="pemandu-info">
@@ -2276,6 +2442,31 @@
         </div>
     </div>
 
+    <div class="wa-modal-overlay" id="galleryModalOverlay">
+        <div class="wa-modal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle"
+            style="max-width:700px;">
+            <div class="wa-modal-header">
+                <button type="button" class="wa-modal-close" id="galleryModalClose" aria-label="Tutup">×</button>
+                <div class="wa-modal-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="9" cy="9" r="2" />
+                        <path d="M21 15l-5-5L5 21" />
+                    </svg>
+                </div>
+                <h3 id="galleryModalTitle">Galeri Bersama Jamaah</h3>
+                <p class="wa-modal-sub">Momen kebersamaan <strong id="galleryNameTag">Ustad</strong> dengan para
+                    jamaah selama membimbing perjalanan ibadah.</p>
+            </div>
+            <div class="wa-modal-scroll gallery-modal-scroll">
+                <div class="gallery-grid" id="galleryGrid"></div>
+                <p class="gallery-empty-note" id="galleryEmptyNote">Foto galeri untuk ustad ini akan segera
+                    ditambahkan.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ========== HEADER SCROLL ==========
         const header = document.getElementById('header');
@@ -2664,13 +2855,22 @@
 
         (function () {
             const galleryData = {
-                asep: { name: 'Ustad Asep Masdinar LC', photos: ['Image/galeri-asep-1.jpg', 'Image/galeri-asep-2.jpg', 'Image/galeri-asep-3.jpg', 'Image/galeri-asep-4.jpg'] },
-                ropi: { name: 'Ustad Ropii', photos: ['Image/galeri-ropi-1.jpg', 'Image/galeri-ropi-2.jpg', 'Image/galeri-ropi-3.jpg', 'Image/galeri-ropi-4.jpg'] },
-                abdullah: { name: 'Ustad Abdullah', photos: ['Image/galeri-abdullah-1.jpg', 'Image/galeri-abdullah-2.jpg', 'Image/galeri-abdullah-3.jpg', 'Image/galeri-abdullah-4.jpg'] },
-                mahmud: { name: 'Kyai Hj Mahmud Abrudarch', photos: ['Image/galeri-mahmud-1.jpg', 'Image/galeri-mahmud-2.jpg', 'Image/galeri-mahmud-3.jpg', 'Image/galeri-mahmud-4.jpg'] },
-                aburachman: { name: 'Aburachmand Al-Hafizh', photos: ['Image/galeri-aburachman-1.jpg', 'Image/galeri-aburachman-2.jpg', 'Image/galeri-aburachman-3.jpg', 'Image/galeri-aburachman-4.jpg'] },
-                dindin: { name: 'Ustad Dindin Komarudin', photos: ['Image/galeri-dindin-1.jpg', 'Image/galeri-dindin-2.jpg', 'Image/galeri-dindin-3.jpg', 'Image/galeri-dindin-4.jpg'] }
+                asep: { name: 'Ustad Asep Masdinar LC', photos: ['Image/galeri-asep-1.jpg', 'Image/galeri-asep-2.jpg', 'Image/galeri-asep-3.jpg', 'Image/galeri-asep-4.jpg', 'Image/galeri-asep-5.jpg', 'Image/galeri-asep-6.jpg'] },
+                ropi: { name: 'Ustad Ropii', photos: ['Image/jamaahustadropii1.jpeg', 'Image/jamaahustadropii2.jpeg', 'Image/jamaahustadropii3.jpeg', 'Image/galeri-ropi-4.jpg', 'Image/galeri-ropi-5.jpg', 'Image/galeri-ropi-6.jpg'] },
+                abdullah: { name: 'Ustad Abdullah', photos: ['Image/galeri-abdullah-1.jpg', 'Image/galeri-abdullah-2.jpg', 'Image/galeri-abdullah-3.jpg', 'Image/galeri-abdullah-4.jpg', 'Image/galeri-abdullah-5.jpg', 'Image/galeri-abdullah-6.jpg'] },
+                mahmud: { name: 'Kyai Hj Mahmud Abrudarch', photos: ['Image/galeri-mahmud-1.jpg', 'Image/galeri-mahmud-2.jpg', 'Image/galeri-mahmud-3.jpg', 'Image/galeri-mahmud-4.jpg', 'Image/galeri-mahmud-5.jpg', 'Image/galeri-mahmud-6.jpg'] },
+                aburachman: { name: 'Aburachmand Al-Hafizh', photos: ['Image/galeri-aburachman-1.jpg', 'Image/galeri-aburachman-2.jpg', 'Image/galeri-aburachman-3.jpg', 'Image/galeri-aburachman-4.jpg', 'Image/galeri-aburachman-5.jpg', 'Image/galeri-aburachman-6.jpg'] },
+                dindin: { name: 'Ustad Dindin Komarudin', photos: ['Image/galeri-dindin-1.jpg', 'Image/galeri-dindin-2.jpg', 'Image/galeri-dindin-3.jpg', 'Image/galeri-dindin-4.jpg', 'Image/galeri-dindin-5.jpg', 'Image/galeri-dindin-6.jpg'] }
             };
+
+            const defaultCaptions = [
+                'Bersama Jamaah di Masjid Nabawi',
+                'Perjalanan Menuju Makkah',
+                'Manasik Umroh',
+                'Dokumentasi Jamaah',
+                'Kebersamaan di Tanah Suci',
+                'Momen Ibadah Bersama Jamaah'
+            ];
 
             const galleryOverlay = document.getElementById('galleryModalOverlay');
             const galleryClose = document.getElementById('galleryModalClose');
@@ -2682,17 +2882,20 @@
 
             let lastFocusedEl = null;
 
-            function buildGalleryGrid(photos) {
+            function buildGalleryGrid(photos, captions) {
                 galleryGrid.innerHTML = '';
                 photos.forEach((src, i) => {
                     const item = document.createElement('div');
                     item.className = 'gallery-grid-item';
+                    const caption = (captions && captions[i]) ? captions[i] : defaultCaptions[i % defaultCaptions.length];
                     item.innerHTML = `
-                        <img src="${src}" alt="Foto bersama jamaah ${i + 1}"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-                        <div class="gallery-fallback" style="display:none">
-                            ${fallbackIconSvg}
-                            <span>Foto menyusul</span>
+                        <div class="gallery-grid-photo">
+                            <img src="${src}" alt="${caption}"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+                            <div class="gallery-fallback" style="display:none">
+                                ${fallbackIconSvg}
+                                <span>Foto menyusul</span>
+                            </div>
                         </div>`;
                     galleryGrid.appendChild(item);
                 });
@@ -2703,7 +2906,7 @@
                 if (!data) return;
 
                 galleryNameTag.textContent = data.name;
-                buildGalleryGrid(data.photos);
+                buildGalleryGrid(data.photos, data.captions);
                 galleryEmptyNote.style.display = data.photos.length ? 'none' : 'block';
 
                 lastFocusedEl = document.activeElement;
